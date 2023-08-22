@@ -31,26 +31,31 @@ function addNotes() {
 
 // Function to save notes to local storage
 function saveNotes() {
+    //Array.from(text): This part takes the NodeList of textarea elements returned by querySelectorAll and converts it into an array. 
     const text = document.querySelectorAll('.notes__container textarea'); // Select all textareas within notes containers
+    //.map(note => note.value): The .map() function is used to iterate over each textarea element in the array and create a new array with the values of those textareas. 
     const data = Array.from(text).map(note => note.value); // Create an array of note values
 
     // Store the notes in local storage
     if (data.length === 0) {
         localStorage.removeItem("notes"); // If no notes, remove the "notes" key from local storage
     } else {
+        //The JSON.stringify() method is used to convert the data array into a JSON-formatted string. JSON (JavaScript Object Notation) is a text-based format for representing structured data. By using JSON.stringify(), you're converting the array into a format that can be stored in local storage.
         localStorage.setItem("notes", JSON.stringify(data)); // Store notes array as JSON string in local storage
     }
 }
 
 // Function to display saved notes
 function showNotes() {
+    //The JSON.parse() function is used to parse (convert) the JSON-formatted string back into its original JavaScript data structure
     const noteList = JSON.parse(localStorage.getItem('notes')); // Retrieve notes array from local storage
 
     if (noteList !== null) {
         noteList.forEach(note => {
             addNotes(); // Add a new notes container
             const notes = document.querySelectorAll('.notes__container textarea');
-            const lastNote = notes[notes.length - 1];
+            const lastNote = notes[notes.length - 1];//the goal is to select the most recently added textarea element within the newly created notes container.notes.length: This part retrieves the number of textarea elements in the collection.
+//notes.length - 1: By subtracting 1 from the length of the collection, you get the index of the last textarea element. Array indices start at 0, so the last element's index is one less than the total number of elements.
             lastNote.value = note; // Set the value of the textarea to the saved note
         });
     } else {

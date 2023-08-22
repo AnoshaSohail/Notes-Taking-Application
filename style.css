@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 1em;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: #EAC696;
+}
+#add__btn{
+    color: white;
+    background-color: #765827;
+    float: right;
+    padding: 0.5em 1em;
+    display: flex;
+    gap: 0.5em;
+    border: none;
+    border-radius: 0.3em;
+    font-size: 0.875rem;
+    position: fixed;
+    right: 20px;
+    transition: background-color .3s ease;
+    cursor: pointer;
+}
+#add__btn:hover{
+    background-color: #82683f;
+}
+.notes__wrapper{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.notes__container{
+    background-color: #C8AE7D;
+    min-width: 15rem;
+    min-height: 12rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin: 2em;
+    box-shadow: 2px 2px 7px 3px #ab8450;
+}
+.notes__menu {
+    background-color: #82683f;
+    padding: 0.4em 0.675em;
+    color: white;
+    display: flex;
+    justify-content: end;
+    gap: 0.5em;
+}
+.notes__menu i{
+    transition: color .3s ease;
+    cursor: pointer;
+}
+.notes__menu i:hover{
+    color: #EAC696;
+}
+.notes__container textarea{
+    border: none;
+    background-color: transparent;
+    min-width: 15rem;
+    min-height: 12rem;
+    padding: 0.875em;
+    font-size: 1rem;
+    color: white;
+    resize: none;
+}
+.notes__container textarea:focus{
+    outline: none;
+}
